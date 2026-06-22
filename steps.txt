@@ -43,5 +43,7 @@ sudo touch /var/db/ConfigurationProfiles/Settings/.cloudConfigRecordNotFound
 Step 22: Again Shutdown your Mac, open Recovery Terminal
 Step 23: write "csrutil status" to check SIP Status, and run "csrutil enable" to enable SIP
 
-additional: type "cat /etc/hosts" to see that mdm files are bypass/supressed
 Step 24: Reboot normally and you'll never have mdm pop ups again unless you wipe your ssd or mac again.
+
+additional: type "cat /etc/hosts" to see that mdm files are bypass/supressed
+Also, after every macOS update, the files are overwritten, so i'd advice to repeat the steps from step 16 Again just after update, as part of the update process itself.
