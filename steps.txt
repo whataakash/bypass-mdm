@@ -1,24 +1,31 @@
-First Up, MDM stands for Mobile Device Management, These are the few important steps you need to keep in mind and follow as it is.
+First Up, MDM stands for Mobile Device Management, These are the few important steps you need to keep in mind and follow as it is. You'd need to wipe your Mac and freshly install Mac. Keep High Speed Internet Ready for faster setup.
+
 Step 1: Open Recovery Mode by hardpressing the power Button on ShutDown State.
 Step 2: Open Options in the Startup Menu
+
 Step 3: Go to Disk Utility
-Step 4: Erase the Macintosh HD drive with APFS and name it "Macintosh HD":
+Step 4: Erase(not "-" ) the Macintosh HD drive with APFS and name it "Macintosh HD", then cmd+q to be back in the main menu
+
 Step 5: Choose Install MacOS whatever from Internet Recovery
 Step 6: Let it download, use 5G unlimited, it should take 30 mins to completely download and load up, the timer is incorrect.
 Step 7: Once the download is complete, the Mac will shutdown itself, again open the recovery and now choose Macintosh HD (the drive where you inztalled macOS)
 Step 8: Boot it normally, go ahead with the Setup
+
 Step 9: When you reach the option to connect to Wifi, force shutdown by pressing Power button and open Recovery again.
 Step 10: Choose Options/ Settings Icon: Go to browser(3rd Option), and search "assafdori mdm bypass"
 Step 11: Copy either the v2 or v1 script, and close the browser with Cmd+Q
 Step 12: Open Terminal under Utility, and Paste the copied script
 Step 13: Select Option 1 and make temporary user and pass.
 Step 14: Volla, MDM bypass successful, you can now restart and boot in Macintosh HD
-Step 15: Once youre on the Setup page, continue it as it is, and whenever you are prompted to enroll in MDM -> Select later
+
+Step 15: Once youre on the Setup page, continue it as it is, and whenever you are prompted to enroll in MDM (often takes time to reappear, may come instantly or days or months later) -> Select later in the pop-up, and now real work begins.
+
 Step 16: Open Recovery Mode and Options Again,
 Step 17: Go to Terminal and Disable SIP
-Step 18: type: csrutil disable
-Step 19: Reboot Mac
-Step 20: Open Terminal and paste the following commands:
+Step 18: type: "csrutil disable"
+Step 19: Reboot Mac normally
+
+Step 20: Open Terminal(Mac's terminal not recovery mode) and paste the following commands:
 Step 21:
 
 echo "0.0.0.0 iprofiles.apple.com" | sudo tee -a /etc/hosts
@@ -33,9 +40,8 @@ sudo touch /var/db/ConfigurationProfiles/Settings/.cloudConfigProfileInstalled
 sudo touch /var/db/ConfigurationProfiles/Settings/.cloudConfigRecordNotFound
 
 
+Step 22: Again Shutdown your Mac, open Recovery Terminal
+Step 23: write "csrutil status" to check SIP Status, and run "csrutil enable" to enable SIP
 
-extra: 
-sudo rm -rf /var/db/ConfigurationProfiles/Settings/.cloudConfigHasActivationRecord
-sudo rm -rf /var/db/ConfigurationProfiles/Settings/.cloudConfigRecordFound
-sudo touch /var/db/ConfigurationProfiles/Settings/.cloudConfigProfileInstalled
-sudo touch /var/db/ConfigurationProfiles/Settings/.cloudConfigRecordNotFound
+additional: type "cat /etc/hosts" to see that mdm files are bypass/supressed
+Step 24: Reboot normally and you'll never have mdm pop ups again unless you wipe your ssd or mac again.
